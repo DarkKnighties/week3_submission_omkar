@@ -9,4 +9,8 @@ Publishes the message "Hello World !" at the frequency to 15Hz to '/new'.
 
 Prints/logs a confirmation message everytime it publishes.
 #### q1_hello_world_listener.py
-Subcribes to the topic names '/new'
+Subcribes to the topic names '/new'.
+
+Logs the content of the message to the console (in this case, "Hello World !").
+
+## Question 2
