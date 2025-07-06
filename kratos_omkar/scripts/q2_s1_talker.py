@@ -2,7 +2,7 @@
 '''
 # This is the publisher script 1 for the red light green light question.
 # It publishes a message to the `/s1` topic, which alternates between 'green' and 'red'.
-# The state changes to 'red' after 10 seconds of being 'green'.
+# The state changes to 'red' after 10 seconds of being 'green' and vice versa.
 '''
 
 

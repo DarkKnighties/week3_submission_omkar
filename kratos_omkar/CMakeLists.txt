@@ -9,6 +9,9 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -20,7 +23,16 @@ install(PROGRAMS
   scripts/q1_hello_world_listener.py
   scripts/q2_s1_talker.py
   scripts/q2_s2_talker.py
+  scripts/q3_rover_status_publisher.py
+  scripts/q4_clock_publisher.py
+  scripts/q4_clock_subscriber.py
   DESTINATION lib/${PROJECT_NAME}
+)
+
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/RoverStatus.msg"
+  DEPENDENCIES geometry_msgs builtin_interfaces std_msgs
 )
 
 
@@ -36,4 +48,5 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+ament_export_dependencies(rosidl_default_runtime)
 ament_package()
