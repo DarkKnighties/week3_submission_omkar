@@ -29,3 +29,6 @@ It subscribes to the `/s1` topic and publishes to the `/s2` topic.
 The message alternates between 'green' and 'red' based on the received message.
 
 If it receives 'green', it publishes 'red', and vice versa.
+
+## Question 3
+
