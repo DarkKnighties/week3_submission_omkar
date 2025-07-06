@@ -12,6 +12,7 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(action_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -26,14 +27,17 @@ install(PROGRAMS
   scripts/q3_rover_status_publisher.py
   scripts/q4_clock_publisher.py
   scripts/q4_clock_subscriber.py
+  scripts/bonus_move_arm_action_client.py
+  scripts/bonus_move_arm_action_server.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
-
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RoverStatus.msg"
-  DEPENDENCIES geometry_msgs builtin_interfaces std_msgs
+  "action/MoveArm.action"
+  DEPENDENCIES geometry_msgs builtin_interfaces std_msgs action_msgs
 )
+
 
 
 if(BUILD_TESTING)
